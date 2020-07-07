@@ -44,7 +44,21 @@ const user = message.mentions.users.first();
  	   	  
  	message.delete()
  	message.channel.send(member.displayName + " has been stook with a ban hammer")
- 	  }
+ 	  } else
+if (message.content.startsWith("n!status")) {
+const os = require("os-utils")
+const moment = require('moment');	
+const ram = process.memoryUsage().heapUsed / 1024 / 1024;
+const uptime = moment(process.uptime()).format('d [days], h [hours], m [minutes] [and] s [seconds]');
+const embed = new Discord.MessageEmbed()
+.setTitle("Status")
+.addField("RAM", Math.floor(ram) + `mb of ram currently being used and ${Math.floor(os.totalmem())} Is my total memory`)
+.addField("Version", "Discord.js version is 11.4.1")
+.addField("Uptime", `${Math.floor(process.uptime())} Seconds up.`)
+.addField("System username",`amrpowershot`)
+.addField(`Running node version`, `${process.version}`)
+message.channel.send(embed);
+}
  	  });
 client.on("message", message => {
 if (message.content.startsWith("n!eval")) {  
