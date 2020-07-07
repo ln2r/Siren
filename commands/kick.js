@@ -1,3 +1,4 @@
+
 exports.run = (client, message, [mention, ...reason]) => {
   const modRole = message.guild.roles.find(role => role.name === "Moderat");
   if (!modRole)
@@ -17,4 +18,18 @@ exports.run = (client, message, [mention, ...reason]) => {
   kickMember.kick(reason.join(" ")).then(member => {
     message.reply(`${member.user.username} was succesfully kicked.`);
   });
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: "Moderator"
+};
+
+exports.help = {
+  name: "kick",
+  category: "Moderation",
+  description: "Kick the mentioned user from the guild.",
+  usage: "kick <@user> <reason>"
 };

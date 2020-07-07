@@ -1,4 +1,4 @@
-exports.run = async (client, message, [action, key, ...value], level) => { // eslint-disable-line no-unused-vars
+exports.run = async (client, message, [action, key, ...value], level) => { 
   
 
   const settings = message.settings;
