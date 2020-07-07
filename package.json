@@ -1,0 +1,36 @@
+{
+  "name": "NHDevBot",
+  "version": "2.3.7",
+  "description": "The official Discord bot of NewHorizon Development.",
+  "main": "NHDev.js",
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "node setup.js"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewHorizonDev/NHDevBot.git"
+  },
+  "author": "NewHorizonDev <NHDev.Official@gmail.com>",
+  "contributors": [
+    "PhantomNimbi (http://github.com/PhantomNimbi)",
+    "Mr-puffer (https://github.com/Mr-puffer"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NewHorizonDev/NHDevBot/issues"
+  },
+  "homepage": "https://github.com/NewHorizonDev/NHDevBott#readme",
+  "dependencies": {
+    "better-sqlite3": "^6.0.1",
+    "chalk": "^4.0.0",
+    "discord.js": "^11.6.4",
+    "enmap": "^5.2.4",
+    "inquirer": "^7.1.0",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2"
+  }
+}
