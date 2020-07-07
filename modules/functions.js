@@ -1,10 +1,11 @@
 module.exports = (client) => {
 
   client.permlevel = message => {
+
     let permlvl = 0;
-
+    
     const permOrder = client.config.permLevels.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
-
+    
     while (permOrder.length) {
       const currentLevel = permOrder.shift();
       if (message.guild && currentLevel.guildOnly) continue;
@@ -31,13 +32,12 @@ module.exports = (client) => {
  
   client.getSettings = (guild) => {
     client.settings.ensure("default", defaultSettings);
+
     if(!guild) return client.settings.get("default");
     const guildConf = client.settings.get(guild.id) || {};
     
     return ({...client.settings.get("default"), ...guildConf});
-  };
-
-  
+  }; 
   client.awaitReply = async (msg, question, limit = 60000) => {
     const filter = m => m.author.id === msg.author.id;
     await msg.channel.send(question);
@@ -48,21 +48,22 @@ module.exports = (client) => {
       return false;
     }
   };
-
-
- 
   client.clean = async (client, text) => {
+   
     if (text && text.constructor.name == "Promise")
+
       text = await text;
-    if (typeof text !== "string")
+
+    
+      if (typeof text !== "string")
       text = require("util").inspect(text, {depth: 1});
 
     text = text
       .replace(/`/g, "`" + String.fromCharCode(8203))
       .replace(/@/g, "@" + String.fromCharCode(8203))
       .replace(client.token, "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
-
-    return text;
+   
+      return text;
   };
 
   client.loadCommand = (commandName) => {
@@ -90,7 +91,7 @@ module.exports = (client) => {
       command = client.commands.get(client.aliases.get(commandName));
     }
     if (!command) return `The command \`${commandName}\` doesn"t seem to exist, nor is it an alias. Try again!`;
-    
+   
     if (command.shutdown) {
       await command.shutdown(client);
     }
@@ -105,33 +106,38 @@ module.exports = (client) => {
     return false;
   };
 
- 
+
   Object.defineProperty(String.prototype, "toProperCase", {
+
     value: function() {
       return this.replace(/([^\W_]+[^\s-]*) */g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
     }
   });
 
- 
+
   Object.defineProperty(Array.prototype, "random", {
+
     value: function() {
       return this[Math.floor(Math.random() * this.length)];
     }
   });
 
-  
+
   client.wait = require("util").promisify(setTimeout);
 
- 
   process.on("uncaughtException", (err) => {
+
+    
     const errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, "g"), "./");
     client.logger.error(`Uncaught Exception: ${errorMsg}`);
     console.error(err);
 
     process.exit(1);
+
   });
 
   process.on("unhandledRejection", err => {
+
     client.logger.error(`Unhandled rejection: ${err}`);
     console.error(err);
   });

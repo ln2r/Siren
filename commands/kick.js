@@ -11,7 +11,7 @@ exports.run = (client, message, [mention, ...reason]) => {
 
   if (!message.guild.me.hasPermission("KICK_MEMBERS"))
     return message.reply("");
-
+    
   const kickMember = message.mentions.members.first();
 
   kickMember.kick(reason.join(" ")).then(member => {
