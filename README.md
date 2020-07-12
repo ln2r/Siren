@@ -17,7 +17,7 @@ for more info.
 
 In a command prompt in your projects folder (wherever that may be) run the following:
 
-`git clone https://github.com/NewHorizonDev/Siren.git`
+`git clone https://github.com/newhorizon-development/Siren.git`
 
 Once finished: 
 
