@@ -6,13 +6,13 @@ let baseConfig = fs.readFileSync("./config_base.txt", "utf8");
 
 const defaultSettings = {
   "prefix": "~",
-  "modLogChannel": "💼log",
+  "modLogChannel": "mod-logs",
   "modRole": "Moderator",
   "adminRole": "Administrator",
   "systemNotice": "true",
-  "welcomeChannel": "welcome",
-  "welcomeMessage": "Say hello to {{user}}, everyone! We all need a warm welcome sometimes :D",
-  "welcomeEnabled": "false"
+  "welcomeChannel": "announcements",
+  "welcomeMessage": "<a:raibow:731805416622653460> Say hello to {{user}}, everyone! We all need a warm welcome sometimes <a:raibow:731805416622653460>",
+  "welcomeEnabled": "true"
 };
 
 const settings = new Enmap({
@@ -39,10 +39,25 @@ let prompts = [
     name: "ownerID",
     message: "Please enter the bot owner's User ID"
   },
+  {
+    type: "input",
+    name: "adminRole",
+    message: "Please type the name of your guild Administrator Role"
+  },
+  {
+    type: "input",
+    name: "modRole",
+    message: "Please enter the name of your guild Moderator Role"
+  },
+  {
+    type: "input",
+    name: "modLogChannel channel",
+    message: "Please type the name of your guild mod-log channel"
+  },
 ];
 
 (async function () {
-  console.log("Setting Up GuideBot Configuration...");
+  console.log("Setting Up Siren Configuration...");
   await settings.defer;
   if (!settings.has("default")) {
     prompts = prompts.slice(1);
@@ -59,7 +74,10 @@ let prompts = [
 
   baseConfig = baseConfig
     .replace("{{ownerID}}", answers.ownerID)
-    .replace("{{token}}", `"${answers.token}"`);
+    .replace("{{token}}", `"${answers.token}"`)
+    .replace("{{modRole}}", answers.modRole)
+    .replace("{{adminRole}}", answers.adminRole)
+    .replace("{{modLogChannel}}", answers.modLogChannel);
 
   fs.writeFileSync("./config.js", baseConfig);
   console.log("REMEMBER TO NEVER SHARE YOUR TOKEN WITH ANYONE!");
