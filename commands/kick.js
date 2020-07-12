@@ -1,6 +1,6 @@
 
 exports.run = (client, message, [mention, ...reason]) => {
-  const modRole = message.guild.roles.find(role => role.name === "Moderat");
+  const modRole = message.guild.roles.find(role => role.name === "Moderator");
   if (!modRole)
     return console.log("The Mods role does not exist");
 
