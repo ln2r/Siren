@@ -28,5 +28,3 @@ typings/
 *.tgz
 .yarn-integrity
 .env
-_config.yml
-
