@@ -1,6 +1,8 @@
 # Siren
 The Official Discord bot of NewHorizon development
 
+![Siren](https://i.imgur.com/pDlLWQe.png)
+
 ## Requirements
 
 - `git` command line ([Windows](https://git-scm.com/download/win)|[Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)|[MacOS](https://git-scm.com/download/mac)) installed
