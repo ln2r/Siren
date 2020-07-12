@@ -1,4 +1,4 @@
-# NHDevBot
+# Siren
 The Official Discord bot of NewHorizon development
 
 ## Requirements
@@ -15,18 +15,18 @@ for more info.
 
 In a command prompt in your projects folder (wherever that may be) run the following:
 
-`git clone https://github.com/NewHorizonDev/NHDevBot.git`
+`git clone https://github.com/NewHorizonDev/Siren.git`
 
 Once finished: 
 
-- In the folder from where you ran the git command, run `cd NHDevBot` and then run `npm install`
+- In the folder from where you ran the git command, run `cd Siren` and then run `npm install`
 - **If you get any error about python or msibuild.exe or binding, read the requirements section again!**
 - Run `node setup.js` to generate a proper configuration file and settings.
 
 ## Starting the bot
 
 To start the bot, in the command prompt, run the following command:
-`node index.js`
+`node Siren.js`
 
 ## Inviting to a guild
 
