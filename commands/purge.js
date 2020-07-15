@@ -19,11 +19,11 @@ exports.run = (client, msg, args) => {
           msgsDeleted = unpinnedMessages.array().length; 
           client.flag = true;
         msg.channel.send(msgsDeleted-1 + ' message(s) deleted!');
-        logger(msgsDeleted-1 + ' message(s) deleted!');
+        logger.log(msgsDeleted-1 + ' message(s) deleted!');
 
       }).catch(err => {
-        logger('Error while doing Bulk Delete', client.day);
-        logger(err, client.day);
+        logger.error('Error while doing Bulk Delete', client.day);
+        logger.error(err, client.day);
         msg.delete();
       });
     }
