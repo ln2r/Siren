@@ -4,7 +4,7 @@
   "description": "The official Discord bot of NewHorizon Development.",
   "main": "NHDev.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node Siren.js",
     "postinstall": "node setup.js"
   },
   "engines": {
@@ -31,6 +31,7 @@
     "enmap": "^5.2.4",
     "inquirer": "^7.1.0",
     "moment": "^2.24.0",
-    "moment-duration-format": "^2.3.2"
+    "moment-duration-format": "^2.3.2",
+    "nodemon": "^2.0.4"
   }
 }
